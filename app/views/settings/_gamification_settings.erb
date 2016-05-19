@@ -11,21 +11,16 @@
 </span>
 <span id="level_points">
     <span>
-        <%= content_tag(:h2, l(:label_first_level_points_title)) %>
+        <%= content_tag(:h2, l(:label_level_points_title)) %>
         <p>
-            <%= content_tag(:label, l(:label_first_level_points)) %>
+            <%= content_tag(:label, l(:label_level_points)) %>
             <%= number_field_tag("settings[first_level_points]", @settings["first_level_points"]) %>
         </p>
-        <%= content_tag(:span, l(:label_first_level_points_explanation)) %>
-    </span>
-    <hr>
-    <span>
-        <%= content_tag(:h2, l(:label_level_multiplier_title)) %>
         <p>
             <%= content_tag(:label, l(:label_level_multiplier)) %>
             <%= number_field_tag("settings[level_multiplier]", @settings["level_multiplier"], :step => 0.1, :min => 1) %>
         </p>
-        <%= content_tag(:span, l(:label_level_multiplier_explanation)) %>
+        <%= content_tag(:span, l(:label_level_explanation)) %>
     </span>
     <hr>
 </span>
@@ -100,7 +95,6 @@
     </table>
     <hr>
 </span>
-
 <span id="tracker_table">
     <%= content_tag(:h2,l(:label_set_score_tracker_for)) %>
   <table style="border:1px solid #000;border-collapse: collapse" >
@@ -121,7 +115,6 @@
     </table>
     <hr>
 </span>
-
 <span id="tracker_priority">
     <%= content_tag(:h2,l(:label_set_score_priority_for)) %>
   <table style="border:1px solid #000;border-collapse: collapse" >
@@ -142,8 +135,7 @@
     </table>
     <hr>
 </span>
-
-<span id="tracker_priority">
+<span id="tracker_group">
     <%= content_tag(:h2,l(:label_set_score_group_for)) %>
   <table style="border:1px solid #000;border-collapse: collapse" >
         <thead>
@@ -163,7 +155,6 @@
     </table>
     <hr>
 </span>
-
 <span id="closing_points">
     <span>
         <%= content_tag(:h2, l(:label_closing_points_title)) %>
