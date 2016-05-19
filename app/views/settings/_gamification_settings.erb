@@ -100,9 +100,10 @@
     </table>
     <hr>
 </span>
+
 <span id="tracker_table">
     <%= content_tag(:h2,l(:label_set_score_tracker_for)) %>
-    <table style="border:1px solid #000;border-collapse: collapse" >
+  <table style="border:1px solid #000;border-collapse: collapse" >
         <thead>
             <tr>
                 <th style="border:1px solid #000"><%= l(:label_tracker) %> </th>
@@ -120,6 +121,49 @@
     </table>
     <hr>
 </span>
+
+<span id="tracker_priority">
+    <%= content_tag(:h2,l(:label_set_score_priority_for)) %>
+  <table style="border:1px solid #000;border-collapse: collapse" >
+        <thead>
+            <tr>
+                <th style="border:1px solid #000"><%= l(:label_priority) %> </th>
+                <th style="border:1px solid #000"><%= l(:factor) %> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for priority in Enumeration.all -%>
+              <tr>
+                  <td style="border:1px solid #000"><%= priority.name %></td>
+                  <td style="text-align: right;border:1px solid #000"><%= number_field_tag("settings[add_score_priority_"+ priority.name + "]", @settings["add_score_priority_"+priority.name], :style => "width:50px") %></td>
+              </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <hr>
+</span>
+
+<span id="tracker_priority">
+    <%= content_tag(:h2,l(:label_set_score_group_for)) %>
+  <table style="border:1px solid #000;border-collapse: collapse" >
+        <thead>
+            <tr>
+                <th style="border:1px solid #000"><%= l(:label_group) %> </th>
+                <th style="border:1px solid #000"><%= l(:score) %> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for group in Group.all -%>
+              <tr>
+                  <td style="border:1px solid #000"><%= group.name %></td>
+                  <td style="text-align: right;border:1px solid #000"><%= number_field_tag("settings[add_score_group_"+ group.name + "]", @settings["add_score_group_"+group.name], :style => "width:50px") %></td>
+              </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <hr>
+</span>
+
 <span id="closing_points">
     <span>
         <%= content_tag(:h2, l(:label_closing_points_title)) %>

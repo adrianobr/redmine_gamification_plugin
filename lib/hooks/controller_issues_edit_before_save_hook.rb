@@ -38,7 +38,8 @@ module Hooks
               end
             end
           end
-          
+
+          #binding.pry
           if (Setting.plugin_redmine_gamification_plugin.has_key?('assignee_to_current'))
             user_id = original_issue.assigned_to_id
           else
