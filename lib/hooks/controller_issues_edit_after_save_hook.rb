@@ -23,7 +23,7 @@ module Hooks
           current_user_id = User.current.id
           project_id = Issue.find(context[:params][:id]).project_id
 
-
+          binding.pry
           # gamification_user_update
           if Gamification.exists?({user_id: current_user_id})
             user = Gamification.find_by_user_id(current_user_id)
@@ -32,13 +32,15 @@ module Hooks
             if(Setting.plugin_redmine_gamification_plugin.has_key?("edit_issue_score"))
               user.up_point(Setting.plugin_redmine_gamification_plugin['edit_issue_score'].to_i)
             end
-              
+
+            binding.pry
             if(Setting.plugin_redmine_gamification_plugin.has_key?("closing_points"))
               status = IssueStatus.find_by_id(context[:issue][:status_id])
               if(status[:is_closed])
                 user.up_point(Setting.plugin_redmine_gamification_plugin['closing_points'].to_i)
               end
             end
+
             # check level
             old_lvl = user.level
             new_lvl = decide_level(user.point)
