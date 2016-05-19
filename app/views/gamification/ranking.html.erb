@@ -1,0 +1,26 @@
+<%=content_tag(:h2, l(:ranking)) %> 
+
+<div id="user-ranking">
+  <table border="1" class="list">
+    <tr>
+      <%=content_tag(:th, l(:ranking), :width => "35") %>
+      <%=content_tag(:th, l(:avatar), :width => "35") %>
+      <%=content_tag(:th, l(:username)) %> 
+      <%=content_tag(:th, l(:score)) %>
+      <%=content_tag(:th, l(:level)) %>
+      <%=content_tag(:th, l(:medals)) %>
+    </tr>
+    <% @users.each_with_index do |user, i| %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= avatar(user.user, :size => "30") %></td>
+        <td><%= link_to user.user.name, :action => 'index', :id => user.user.id %></td>
+        <td><%= user.point %></td>
+        <td><%= user.level %></td>
+        <td><%= user.gamification_medal_assignment.count %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= render 'sidebar' %>

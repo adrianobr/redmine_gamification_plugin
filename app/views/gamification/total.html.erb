@@ -1,0 +1,5 @@
+<%=content_tag(:h2, l(:plugin_name)) %>
+
+<% @users.each do |user| %>
+  <p><%= user.name %></p>
+<% end %>

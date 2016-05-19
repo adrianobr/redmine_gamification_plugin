@@ -1,0 +1,25 @@
+<%=content_tag(:h2, l(:project_members)) %>
+
+<table>
+  <tr>
+    <%=content_tag(:th, l(username)) %> 
+    <%=content_tag(:th, l(:score)) %> 
+    <%=content_tag(:th, l(:ticket_count)) %> 
+  </tr>
+  <% @project_users.each do |user| %>
+    <% if user.user_id == @current_user_id %>
+      <tr>
+        <td><strong><%= user.user.name %></strong></td>
+        <td><strong><%= user.point %></strong></td>
+        <td><strong><%= user.ticket_count %></strong></td>
+      </tr>
+    <% else %>
+      <tr>
+        <td><%= user.user.name %></td>
+        <td><%= user.point %></td>
+        <td><%= user.ticket_count %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+

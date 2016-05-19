@@ -1,0 +1,29 @@
+<style>
+#rating-form {
+  font-size: 20px;
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.rating-select {
+  font-size: 20px;
+}
+</style>
+
+<%=content_tag(:h2, l(:evaluate)) %>
+
+<% unless @users.nil? %>
+  <div id="rating-form">
+  <%= form_tag({action: 'regist_rating'}) do %>
+    <%=content_tag(:span, l(:assign_badge_users))  %>
+    <%= select_tag('rate_user', options_for_select(@users), {class: 'rating-select'}) %><br/>
+    <%= content_tag(:span, l(:assign_badge_badges)) %>
+    <%= select_tag('medal', options_for_select(@medals), {class: 'rating-select'}) %><br/>
+    <%= submit_tag l(:submit), {class: 'rating-select'} %>
+  <% end %>
+  </div>
+<% else %>
+  <%=content_tag(:h3, l(:no_users)) %>
+<% end %>
+
+<%= render 'sidebar' %>

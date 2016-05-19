@@ -1,0 +1,56 @@
+<%= stylesheet_link_tag '/index.css', plugin: 'redmine_gamification_plugin', media: 'screen' %>
+
+<%=content_tag(:h2, l(:plugin_name)) %>
+
+<h3 id="title"><%=content_tag(:span, l(:status_for) + @user.user.name) %></h3>
+
+<div id="user-image">
+  <%= avatar(@user.user, :size => "150") %>
+
+</div>
+
+<div id="user-info">
+  <div id="user-point">
+    <%=content_tag(:p,@user.point) %>
+    <%=content_tag(:p, l(:score), class: "item") %> 
+  </div>
+  <div id="user-level">
+    <%=content_tag(:p, @user.level) %> 
+    <%=content_tag(:p, l(:level), class: "item") %>
+    <div id="user-next-level">
+      <%=content_tag(:p, (Setting.plugin_redmine_gamification_plugin['level_multiplier'].to_f ** (@user.level)) * Setting.plugin_redmine_gamification_plugin['first_level_points'].to_i ) %>
+      <%=content_tag(:p, l(:next_level), class: "item") %>
+    </div>
+  </div>
+  <div id="user-ticket_count">
+    <%=content_tag(:p, @user.ticket_count) %> 
+    <%=content_tag(:p, l(:ticket_count), class: "item") %> 
+  </div>
+</div>
+
+<br><br>
+<h2 style="clear: both;"><%= l(:medals_earned) %> </h2>
+<table border="1" class="list">
+  <tr>
+    <% @medal_count.each do |medal_count| %>
+      <th><%= medal_count[0]  %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <% @medal_count.each do |medal_count| %>
+      <th><%= medal_count[1]  %></th>
+    <% end %>
+  </tr>
+</table>
+<%#*<a href="#" onclick="Effect.toggle('medal_desc','blind',{duration:0.3});">Show more</a>%>
+<fieldset id="show_more" class="collapsible collapsed" >
+  <legend onclick="toggleFieldset(this);"><%= l(:show_more) %></legend>
+  <div id="medal_desc" style="display: none">
+  <% @medals.each_with_index do |medal, i| %>
+    <%=content_tag(:p, l(:got_medal) + medal.gamification_medal_type.name + 
+        l(:from) + medal.user.firstname + " " + medal.user.lastname + 
+        l(:got_medal_on) + medal.assign_date.strftime("%m/%d/%Y - %H:%M"), class: "item") %> 
+  <% end %>
+  </div>
+</fieldset>
+<%= render 'sidebar' %>
