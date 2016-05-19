@@ -12,13 +12,14 @@
   cannot_use: "Você não pode usar essa funcionalidade."
 
   # Views
-  my_status: "Meus Pontos"
+  my_status: "Pontuação"
   status_for: "Pontos para "
   tutorial: "Tutorial"
   badge: "Medalhas"
   badge_list: "Lista de medalha"
   badges_for: "Medalhas para"
-  evaluate: "Avaliar Usuário"
+  evaluate: "Agradecer"
+  premium: "Prêmios"
   ranking: "Posição"
   do_you_want: "Você quer usar a gamificação para ganhar prêmios?"
   use_plugin: "Usuário"
@@ -31,7 +32,7 @@
   remove_image: "Remover imagem"
   username: "Usuário"
   score: "Pontos"
-  factor: "Fator"
+  factor: "Peso"
   level: "Níveis"
   next_level: "Próximo"
   ticket_count: "Bilhetes"
@@ -72,8 +73,8 @@
   label_use: "Usar o plugin de gamificação?"
   label_set_score_status_for: "Pontos por Categoria: "
   label_set_score_tracker_for: "Pontos por Tipo: "
-  label_set_score_priority_for: "Pontos por Prioridade: "
-  label_set_score_group_for: "Pontos por Grupo: "
+  label_set_score_priority_for: "Peso por Prioridade: "
+  label_set_score_group_for: "Peso por Grupo: "
   label_priority: "Prioridade"
   label_group: "Grupo"
   label_status: "Categoria"
@@ -93,3 +94,7 @@
 
   # Tutorial text
   tutorial_text: "Os pontos são dados de acordo com diferentes ações no Redmine, para cada problema criado ou atualizado, mas também por mudanças no estatuto"
+
+
+  # Premium text
+  premium_text: "Aqui você pode trocar seus bilhetes por Prêmios"

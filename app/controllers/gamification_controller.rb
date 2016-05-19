@@ -110,6 +110,9 @@ class GamificationController < ApplicationController
   def tutorial
   end
 
+  def premium
+  end
+
   def badges
     @user = Gamification.find_by_user_id(User.current.id)
     @user_badges = GamificationBadge.find_by_user_id(@user.user_id)

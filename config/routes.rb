@@ -2,6 +2,7 @@
 # See: http://guides.rubyonrails.org/routing.html
 
 get 'gamification/tutorial' => 'gamification#tutorial'
+get 'gamification/premium' => 'gamification#premium'
 post 'gamification/regist_rating' => 'gamification#regist_rating'
 put 'gamification/upload_image' => 'gamification#upload_image'
 get 'gamification/remove_image' => 'gamification#remove_image'
