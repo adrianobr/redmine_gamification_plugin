@@ -1,3 +1,3 @@
 class GamificationPremium < ActiveRecord::Base
-  unloadable
+  #unloadable
 end
