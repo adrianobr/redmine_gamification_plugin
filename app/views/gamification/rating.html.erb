@@ -15,7 +15,7 @@
 <% unless @users.nil? %>
   <div id="rating-form">
   <%= form_tag({action: 'regist_rating'}) do %>
-    <%=content_tag(:span, l(:assign_badge_users))  %>
+    <%= content_tag(:span, l(:assign_badge_users))  %>
     <%= select_tag('rate_user', options_for_select(@users), {class: 'rating-select'}) %><br/>
     <%= content_tag(:span, l(:assign_badge_badges)) %>
     <%= select_tag('medal', options_for_select(@medals), {class: 'rating-select'}) %><br/>

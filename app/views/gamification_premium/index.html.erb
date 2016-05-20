@@ -1,5 +1,46 @@
+<style>
+  #rating-form {
+    font-size: 20px;
+    text-align: center;
+    padding: 60px 40px;
+  }
+
+  .rating-select {
+    font-size: 20px;
+  }
+</style>
+
 <%=content_tag(:h2, l(:premium)) %>
-<%=content_tag(:p, l(:premium_create_text)) %>
+
+
+<% unless @user.nil? %>
+    <div id="rating-form">
+      <%= form_tag({action: 'create'}) do %>
+          <%= content_tag(:span, l(:premium_description))  %>
+          <%= text_field_tag('description') %><br/>
+          <%= content_tag(:span, l(:premium_ticket)) %>
+          <%= number_field_tag('tickets') %><br/>
+          <%= submit_tag l(:submit) %>
+      <% end %>
+    </div>
+<% else %>
+    <%=content_tag(:h3, l(:no_users)) %>
+<% end %>
+
+<div id="user-ranking">
+  <table border="1" class="list">
+    <tr>
+      <%=content_tag(:th, l(:premium_description)) %>
+      <%=content_tag(:th, l(:premium_ticket)) %>
+    </tr>
+    <% @premiums.each do |premium| %>
+        <tr>
+          <td><%= premium.description %></td>
+          <td><%= premium.tickets %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
 
 <% unless controller_name == 'admin' && action_name == 'index' %>
     <% content_for :sidebar do %>

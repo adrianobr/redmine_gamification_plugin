@@ -3,7 +3,7 @@
 <%=content_tag(:h3, l(:plugin_name)) %>
 
 <div id="glist-menu">
-  <%= link_to l(:my_status), {controller: 'gamification', action: 'index'} %><br />
+  <%= link_to l(:my_status), {controller: 'gamification', action: 'create'} %><br />
   <%= link_to_unless_current l(:premium), {controller: 'gamification_premium', action: 'premium'} %> <br />
   <%= link_to l(:badge), {controller: 'gamification',action: 'badges'} %> <br />
   <%= link_to l(:evaluate), {controller: 'gamification', action: 'rating'} %><br />

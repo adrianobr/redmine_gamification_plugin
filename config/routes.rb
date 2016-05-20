@@ -23,3 +23,4 @@ get 'gamification/:id', :to => 'gamification#index'
 
 get 'gamification_premium/premium' => 'gamification_premium#premium'
 get 'gamification_premium' => 'gamification_premium#index'
+post 'gamification_premium/create' => 'gamification_premium#create'
