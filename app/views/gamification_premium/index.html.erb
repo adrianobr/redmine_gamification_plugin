@@ -14,33 +14,41 @@
 
 
 <% unless @user.nil? %>
-    <div id="rating-form">
-      <%= form_tag({action: 'create'}) do %>
-          <%= content_tag(:span, l(:premium_description))  %>
-          <%= text_field_tag('description') %><br/>
-          <%= content_tag(:span, l(:premium_ticket)) %>
-          <%= number_field_tag('tickets') %><br/>
-          <%= submit_tag l(:submit) %>
-      <% end %>
-    </div>
+
+    <div id="user-ranking">
+      <table border="1" class="list">
+        <thead>
+          <tr>
+            <th><%= content_tag(:th, l(:premium_description)) %></th>
+            <th><%= content_tag(:th, l(:premium_ticket)) %></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @premiums.each do |premium| %>
+            <tr>
+              <td><%= premium.description %></td>
+              <td><%= premium.tickets %></td>
+              <td><%= link_to 'Show', premium %></td>
+              <td><%= link_to 'Edit', edit_gamification_premium_path(premium) %></td>
+              <td><%= link_to 'Destroy', premium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to 'New Premium', new_gamification_premium_path %>
+     </div>
+
 <% else %>
     <%=content_tag(:h3, l(:no_users)) %>
 <% end %>
 
-<div id="user-ranking">
-  <table border="1" class="list">
-    <tr>
-      <%=content_tag(:th, l(:premium_description)) %>
-      <%=content_tag(:th, l(:premium_ticket)) %>
-    </tr>
-    <% @premiums.each do |premium| %>
-        <tr>
-          <td><%= premium.description %></td>
-          <td><%= premium.tickets %></td>
-        </tr>
-    <% end %>
-  </table>
-</div>
 
 <% unless controller_name == 'admin' && action_name == 'index' %>
     <% content_for :sidebar do %>
