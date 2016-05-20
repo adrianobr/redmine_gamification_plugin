@@ -52,7 +52,16 @@ module Hooks
               points += Setting.plugin_redmine_gamification_plugin['add_score_tracker_'+ tracker.name].to_i
             end
           end
-          
+
+          #binding.pry
+          status = IssueStatus.find_by_id(context[:issue][:status_id])
+          if(status[:is_closed])
+            priority =  Enumeration.find_by_id(context[:params][:issue][:priority_id])
+            if (Setting.plugin_redmine_gamification_plugin.has_key?('add_score_priority_'+ priority.name))
+              points += Setting.plugin_redmine_gamification_plugin['add_score_priority_'+ priority.name].to_i
+            end
+          end
+
           # Assigning points for the assignee
           if Gamification.exists?({user_id: user_id})
             user = Gamification.find_by_user_id(user_id)
