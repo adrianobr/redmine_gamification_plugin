@@ -96,6 +96,8 @@
   tutorial_text: "Os pontos são dados de acordo com diferentes ações no Redmine, para cada problema criado ou atualizado, mas também por mudanças no estatuto"
 
 
-  # Premium text
+  # Premium
   premium_list_text: "Aqui você pode trocar seus bilhetes por Prêmios"
   premium_create_text: "Aqui serão cadastros os prêmios"
+  premium_description: "Descrição"
+  premium_ticket: "Bilhetes"

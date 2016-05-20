@@ -12,16 +12,17 @@ class GamificationPremiumController < ApplicationController
       @user = Gamification.find_by_user_id(User.current.id)
     end
 
-    @medal_types = GamificationMedalType.all
-    @medals = @user.gamification_medal_assignment
+    @premiums = GamificationPremium.all
+  end
 
-    @medal_count = {}
-    GamificationMedalType.all.each do |medal|
-      @medal_count[medal.name] = 0
+  def create
+    GamificationPremium.create(description: params[:description], tickets: params[:tickets])
+    binding.pry
+
+    respond_to do |format|
+        format.html { redirect_to action: "index"}
     end
-    @medals.each do |medal|
-      @medal_count[medal.gamification_medal_type.name] += 1
-    end
+
   end
 
   def premium

@@ -107,10 +107,6 @@ class GamificationController < ApplicationController
     end
   end
 
-
-
-
-
   def badges
     @user = Gamification.find_by_user_id(User.current.id)
     @user_badges = GamificationBadge.find_by_user_id(@user.user_id)
@@ -167,7 +163,7 @@ class GamificationController < ApplicationController
   end
 
   private
-  def find_project
+    def find_project
     @project = Project.find(params[:project_id])
   rescue ActiveRecord::RecordNotFound
     render_404
@@ -176,7 +172,7 @@ class GamificationController < ApplicationController
 #  Admin = 1
 #  Anonymous = 2
 
-  def auth_gamification
+    def auth_gamification
     user_id = User.current.id
 
     # Error if guest or administrator
