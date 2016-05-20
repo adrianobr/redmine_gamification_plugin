@@ -97,4 +97,5 @@
 
 
   # Premium text
-  premium_text: "Aqui você pode trocar seus bilhetes por Prêmios"
+  premium_list_text: "Aqui você pode trocar seus bilhetes por Prêmios"
+  premium_create_text: "Aqui serão cadastros os prêmios"
