@@ -22,7 +22,7 @@ Redmine::Plugin.register :redmine_gamification_plugin do
 
   menu :top_menu, :redmine_gamification_plugin, {controller: 'gamification', action: 'index'}, :caption => :plugin_name
   menu :project_menu, :project_gamification, {controller: 'gamification', action: 'project'}, caption: 'Status', param: :project_id 
-  menu :admin_menu, :premium_gamification, {controller: 'gamification_premium', action: 'index'}, caption: 'Prêmio', param: :project_id
+  menu :admin_menu, :premium_gamification, {controller: 'gamification_premia', action: 'index'}, caption: 'Prêmio', param: :project_id
 
   settings :default => {'empty' => true}, :partial => 'settings/gamification_settings'
 end

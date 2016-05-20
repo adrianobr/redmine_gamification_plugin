@@ -1,0 +1,13 @@
+<%= form_for(@premium) do |f| %>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+    </div>
+    <div class="field">
+      <%= f.label :tickets %><br>
+      <%= f.text_field :tickets %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

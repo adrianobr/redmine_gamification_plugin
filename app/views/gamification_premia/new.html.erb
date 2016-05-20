@@ -1,0 +1,30 @@
+<style>
+  #rating-form {
+    font-size: 20px;
+    text-align: center;
+    padding: 60px 40px;
+  }
+
+  .rating-select {
+    font-size: 20px;
+  }
+</style>
+
+<%=content_tag(:h2, l(:premium)) %>
+
+<% unless @user.nil? %>
+    <div id="user-ranking">
+      <%= render 'form' %>
+      <%= link_to 'Back', gamification_premia_path %>
+    </div>
+<% else %>
+      <%=content_tag(:h3, l(:no_users)) %>
+<% end %>
+
+
+<% unless controller_name == 'admin' && action_name == 'index' %>
+    <% content_for :sidebar do %>
+        <h3><%=l(:label_administration)%></h3>
+        <%= render :partial => 'admin/menu' %>
+    <% end %>
+<% end %>

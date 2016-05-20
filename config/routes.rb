@@ -23,7 +23,5 @@ get 'gamification/:id', :to => 'gamification#index'
 
 
 resources :gamification_premia
-get 'gamification_premium/premium' => 'gamification_premium#premium'
-get 'gamification_premium' => 'gamification_premium#index'
-post 'gamification_premium/create' => 'gamification_premium#create'
-put 'gamification_premium/update' => 'gamification_premium#update'
+get 'gamification_premia' => 'gamification_premia#premium'
+
