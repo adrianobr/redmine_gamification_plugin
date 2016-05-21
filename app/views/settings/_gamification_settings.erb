@@ -13,6 +13,7 @@
     </span>
     <hr>
 </span>
+
 <span id="issue_assigne">
     <span>
         <%= content_tag(:h2, l(:label_assignee_to_current_title)) %>
@@ -24,6 +25,7 @@
     </span>
     <hr>
 </span>
+
 <span id="issues_container">
     <span id="new_issues_container">
         <%=content_tag(:h2, l(:label_new_issue)) %>
@@ -56,6 +58,7 @@
     </span>  
     <hr>
 </span>
+
 <span id="wiki_container">
     <span id="edit_wiki_container">
         <%=content_tag(:h2, l(:label_edit_wiki)) %>
@@ -73,6 +76,7 @@
     </span>
     <hr>
 </span>
+
 <span id="status_table">
     <%= content_tag(:h2,l(:label_set_score_status_for)) %>
     <table style="border:1px solid #000;border-collapse: collapse" >
@@ -95,6 +99,7 @@
     </table>
     <hr>
 </span>
+
 <span id="tracker_table">
     <%= content_tag(:h2,l(:label_set_score_tracker_for)) %>
   <table style="border:1px solid #000;border-collapse: collapse" >
@@ -115,6 +120,28 @@
     </table>
     <hr>
 </span>
+
+<span id="badges_group">
+    <%= content_tag(:h2,l(:label_set_score_badges_for)) %>
+  <table style="border:1px solid #000;border-collapse: collapse" >
+        <thead>
+            <tr>
+                <th style="border:1px solid #000"><%= l(:label_badges) %> </th>
+                <th style="border:1px solid #000"><%= l(:score) %> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for badges in GamificationMedalType.all -%>
+              <tr>
+                  <td style="border:1px solid #000"><%= badges.name %></td>
+                  <td style="text-align: right;border:1px solid #000"><%= number_field_tag("settings[add_score_badges_"+ badges.name + "]", @settings["add_score_badges_"+badges.name], :style => "width:50px") %></td>
+              </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <hr>
+</span>
+
 <span id="tracker_priority">
     <%= content_tag(:h2,l(:label_set_score_priority_for)) %>
   <table style="border:1px solid #000;border-collapse: collapse" >
@@ -135,6 +162,7 @@
     </table>
     <hr>
 </span>
+
 <span id="tracker_group">
     <%= content_tag(:h2,l(:label_set_score_group_for)) %>
   <table style="border:1px solid #000;border-collapse: collapse" >
@@ -155,6 +183,7 @@
     </table>
     <hr>
 </span>
+
 <span id="closing_points">
     <span>
         <%= content_tag(:h2, l(:label_closing_points_title)) %>

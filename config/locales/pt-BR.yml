@@ -75,10 +75,12 @@
   label_set_score_tracker_for: "Pontos por Tipo: "
   label_set_score_priority_for: "Peso por Prioridade: "
   label_set_score_group_for: "Peso por Grupo: "
+  label_set_score_badges_for: "Pontos por Agradecimento: "
   label_priority: "Prioridade"
   label_group: "Grupo"
   label_status: "Categoria"
   label_tracker: "Tipo"
+  label_badges: "Agradecimento"
   label_forward: "Indo"
   label_backward: "Voltando"
   label_assignee_to_current_title: "Pontos ao Usuário Anterior"
@@ -112,6 +114,11 @@
   premium_destroy_confirm: "Tem certeza?"
   premium_redeem: "Resgatar"
   premium_redeem_confirm: "Tem certeza?"
+  premium_created: 'Prêmio criado com sucesso.'
+  premium_updated: 'Prêmio atualizado com sucesso'
+  premium_destroyed: 'Prêmio excluido com sucesso'
+  premium_discounted: 'Prêmio descontado.'
+  premium_undiscounted: 'Prêmio não descontado. Sem bilhete suficiente.'
 
   ##Generic
   helpers:

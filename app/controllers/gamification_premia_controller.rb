@@ -23,7 +23,7 @@ class GamificationPremiaController < ApplicationController
 
     respond_to do |format|
       if @premium.save
-        format.html { redirect_to @premium, notice: 'Premium was successfully created.' }
+        format.html { redirect_to @premium, notice: l(:premium_created) }
       else
         format.html { render :new }
       end
@@ -33,7 +33,7 @@ class GamificationPremiaController < ApplicationController
   def update
     respond_to do |format|
       if @premium.update(premium_params)
-        format.html { redirect_to @premium, notice: 'Premium was successfully updated.' }
+        format.html { redirect_to @premium, notice: l(:premium_updated) }
       else
         format.html { render :edit }
       end
@@ -43,7 +43,7 @@ class GamificationPremiaController < ApplicationController
   def destroy
     @premium.destroy
     respond_to do |format|
-      format.html { redirect_to gamification_premia_url, notice: 'Premium was successfully destroyed.' }
+      format.html { redirect_to gamification_premia_url, notice: l(:premium_destroyed) }
     end
   end
 

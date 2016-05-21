@@ -176,10 +176,10 @@ class GamificationController < ApplicationController
     respond_to do |format|
       if discount > 0
         if @user.update(ticket_count: discount)
-          format.html { redirect_to gamification_url, notice: 'Prêmio discontado.' }
+          format.html { redirect_to gamification_url, notice: l(:premium_discounted) }
         end
       else
-        format.html { redirect_to gamification_url, notice: 'Prêmio não discontado. Sem bilhete suficiente.' }
+        format.html { redirect_to gamification_url, notice: l(:premium_undiscounted) }
       end
     end
   end
