@@ -8,6 +8,8 @@ This plugin was originally develop by Kazuto Horita (http://github.com/kzth/redm
 
 = Installation
 
+Redmine version support: 3.0.x, 2.6.x, 2.5.x
+
 To install the plugin, execute the following commands from the root of your Redmine directory:
 
 cd plugins  
