@@ -24,12 +24,11 @@
           <th></th>
         </tr>
         </thead>
-
         <tbody>
         <% @premia.each do |premium| %>
             <tr>
               <td><%= premium.description %></td>
-              <td><%= premium.tickets %></td>
+              <td><%= number_to_human(premium.tickets) %></td>
               <td><%= link_to l(:premium_redeem), gamification_redeem_path(premium), method: :put, data: { confirm: l(:premium_redeem_confirm) } %></td>
             </tr>
         <% end %>

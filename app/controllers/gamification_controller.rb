@@ -9,7 +9,7 @@ class GamificationController < ApplicationController
 
   before_filter :auth_gamification, only: [:index, :project]
   before_filter :find_project, only: [:project]
-  before_action :set_user, only: [:premia]
+  before_action :set_user, only: [:list_premia, :redeem]
 
   def index
     if params[:id]
@@ -163,14 +163,25 @@ class GamificationController < ApplicationController
   def error
   end
 
-  def premia
+  def list_premia
     @premia = GamificationPremium.all.order(tickets: :asc)
-
   end
 
   def redeem
-    binding.pry
+    #binding.pry
+    @premium = GamificationPremium.find(params[:id])
 
+    discount = @user.ticket_count - @premium.tickets
+
+    respond_to do |format|
+      if discount > 0
+        if @user.update(ticket_count: discount)
+          format.html { redirect_to gamification_url, notice: 'Prêmio discontado.' }
+        end
+      else
+        format.html { redirect_to gamification_url, notice: 'Prêmio não discontado. Sem bilhete suficiente.' }
+      end
+    end
   end
 
   private

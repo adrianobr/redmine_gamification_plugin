@@ -29,7 +29,7 @@
         <% @premia.each do |premium| %>
             <tr>
               <td><%= premium.description %></td>
-              <td><%= premium.tickets %></td>
+              <td><%= number_to_human(premium.tickets) %></td>
               <td><%= link_to l(:premium_show), premium %></td>
               <td><%= link_to l(:premium_edit), edit_gamification_premium_path(premium) %></td>
               <td><%= link_to l(:premium_destroy), premium, method: :delete, data: { confirm: l(:premium_destroy_confirm) } %></td>

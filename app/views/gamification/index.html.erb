@@ -11,19 +11,19 @@
 
 <div id="user-info">
   <div id="user-point">
-    <%=content_tag(:p,@user.point) %>
+    <%=content_tag(:p,number_to_human(@user.point)) %>
     <%=content_tag(:p, l(:score), class: "item") %> 
   </div>
   <div id="user-level">
-    <%=content_tag(:p, @user.level) %> 
+    <%=content_tag(:p, @user.level) %>
     <%=content_tag(:p, l(:level), class: "item") %>
     <div id="user-next-level">
-      <%=content_tag(:p, (Setting.plugin_redmine_gamification_plugin['level_multiplier'].to_f ** (@user.level)) * Setting.plugin_redmine_gamification_plugin['first_level_points'].to_i ) %>
+      <%=content_tag(:p, number_to_human((Setting.plugin_redmine_gamification_plugin['level_multiplier'].to_f ** (@user.level)) * Setting.plugin_redmine_gamification_plugin['first_level_points'].to_i)) %>
       <%=content_tag(:p, l(:next_level), class: "item") %>
     </div>
   </div>
   <div id="user-ticket_count">
-    <%=content_tag(:p, @user.ticket_count) %> 
+    <%=content_tag(:p, number_to_human(@user.ticket_count)) %>
     <%=content_tag(:p, l(:ticket_count), class: "item") %> 
   </div>
 </div>
@@ -38,7 +38,7 @@
   </tr>
   <tr>
     <% @medal_count.each do |medal_count| %>
-      <th><%= medal_count[1]  %></th>
+      <th><%= number_to_human(medal_count[1])  %></th>
     <% end %>
   </tr>
 </table>

@@ -19,8 +19,8 @@ get 'gamification/total' => 'gamification#total'
 #get 'gamification/create' => 'gamification#create'
 
 
-get 'gamification/premia' => 'gamification#premia'
-put 'gamification/redeem/:id' => 'gamification#redeem'
+get 'gamification/list_premia' => 'gamification#list_premia'
+put 'gamification/redeem/:id' => 'gamification#redeem', as: 'gamification_redeem'
 
 resources :gamification_premia
 
