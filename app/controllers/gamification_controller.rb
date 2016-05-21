@@ -9,6 +9,7 @@ class GamificationController < ApplicationController
 
   before_filter :auth_gamification, only: [:index, :project]
   before_filter :find_project, only: [:project]
+  before_action :set_user, only: [:premia]
 
   def index
     if params[:id]
@@ -162,30 +163,33 @@ class GamificationController < ApplicationController
   def error
   end
 
-  private
-    def find_project
-    @project = Project.find(params[:project_id])
-  rescue ActiveRecord::RecordNotFound
-    render_404
+  def premia
+    @premia = GamificationPremium.all.order(tickets: :asc)
+
   end
 
-#  Admin = 1
-#  Anonymous = 2
+  def redeem
+    binding.pry
+
+  end
+
+  private
+    def set_user
+      user_id = User.current.id
+      @user = Gamification.find_by_user_id(user_id)
+    end
+
+    def find_project
+      @project = Project.find(params[:project_id])
+      rescue ActiveRecord::RecordNotFound
+        render_404
+    end
 
     def auth_gamification
-    user_id = User.current.id
-
-    # Error if guest or administrator
-    # This is not really working, will look into it again
-#    if user_id == Anonymous
-#      flash[:error] = l(:cannot_use)
-#      redirect_to action: 'error'
-#      return 
-#    end
-
-    unless Gamification.exists?(user_id: user_id)
-      redirect_to action: 'entry'
-      return
-    end 
-  end
+      user_id = User.current.id
+      unless Gamification.exists?(user_id: user_id)
+        redirect_to action: 'entry'
+        return
+      end
+     end
 end

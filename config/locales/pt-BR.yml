@@ -17,7 +17,7 @@
   tutorial: "Tutorial"
   badge: "Medalhas"
   badge_list: "Lista de medalha"
-  badges_for: "Medalhas para"
+  badges_for: "Medalhas para "
   evaluate: "Agradecer"
   premium: "Prêmios"
   ranking: "Posição"
@@ -110,6 +110,8 @@
   premium_destroy: "Exluir"
   premium_back: "Voltar"
   premium_destroy_confirm: "Tem certeza?"
+  premium_redeem: "Resgatar"
+  premium_redeem_confirm: "Tem certeza?"
 
   ##Generic
   helpers:

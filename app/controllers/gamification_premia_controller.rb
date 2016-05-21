@@ -47,9 +47,6 @@ class GamificationPremiaController < ApplicationController
     end
   end
 
-  def premium
-  end
-
   private
     def set_user
       user_id = User.current.id
