@@ -10,13 +10,13 @@
   }
 </style>
 
-<%=content_tag(:h2, 'Editar ' + l(:premium)) %>
+<%=content_tag(:h2, l(:premium_edit) +" "+ l(:premium)) %>
 
 <% unless @user.nil? %>
     <div id="user-ranking">
       <%= render 'form' %>
-      <%= link_to 'Show', @premium %>
-      <%= link_to 'Back', gamification_premia_path %>
+      <%= link_to l(:premium_show), @premium %>
+      <%= link_to l(:premium_back), gamification_premia_path %>
     </div>
 <% else %>
     <%=content_tag(:h3, l(:no_users)) %>

@@ -1,4 +1,3 @@
-
 <style>
   #rating-form {
     font-size: 20px;
@@ -11,7 +10,7 @@
   }
 </style>
 
-<%=content_tag(:h2, l(:premium)) %>
+<%= content_tag(:h2, l(:premium)) %>
 
 <% unless @user.nil? %>
     <div id="user-ranking">
@@ -19,25 +18,25 @@
       <p id="notice"><%= notice %></p>
 
       <p>
-        <strong>Description:</strong>
+        <strong><%= l(:premium_description) +": " %></strong>
         <%= @premium.description %>
       </p>
       <p>
-        <strong>Tickets:</strong>
+        <strong><%= l(:premium_tickets) +": " %></strong>
         <%= @premium.tickets %>
       </p>
 
-      <%= link_to 'Edit', edit_gamification_premium_path(@premium) %> |
-      <%= link_to 'Back', gamification_premia_path %>
+      <%= link_to l(:premium_edit), edit_gamification_premium_path(@premium) %> |
+      <%= link_to l(:premium_back), gamification_premia_path %>
     </div>
 <% else %>
-    <%=content_tag(:h3, l(:no_users)) %>
+    <%= content_tag(:h3, l(:no_users)) %>
 <% end %>
 
 
 <% unless controller_name == 'admin' && action_name == 'index' %>
     <% content_for :sidebar do %>
-        <h3><%=l(:label_administration)%></h3>
+        <h3><%= l(:label_administration) %></h3>
         <%= render :partial => 'admin/menu' %>
     <% end %>
 <% end %>

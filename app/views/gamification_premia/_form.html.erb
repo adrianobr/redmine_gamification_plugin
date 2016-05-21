@@ -1,10 +1,10 @@
 <%= form_for(@premium) do |f| %>
     <div class="field">
-      <%= f.label :description %><br>
+      <%= f.label :description, l(:premium_description) %><br>
       <%= f.text_field :description %>
     </div>
     <div class="field">
-      <%= f.label :tickets %><br>
+      <%= f.label :tickets, l(:premium_tickets) %><br>
       <%= f.text_field :tickets %>
     </div>
     <div class="actions">

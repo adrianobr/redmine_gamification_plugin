@@ -100,4 +100,25 @@
   premium_list_text: "Aqui você pode trocar seus bilhetes por Prêmios"
   premium_create_text: "Aqui serão cadastros os prêmios"
   premium_description: "Descrição"
-  premium_ticket: "Bilhetes"
+  premium_tickets: "Bilhetes"
+
+
+  ##Premium View Index
+  premium_create: "Adicionar"
+  premium_show: "Mostrar"
+  premium_edit: "Editar"
+  premium_destroy: "Exluir"
+  premium_back: "Voltar"
+  premium_destroy_confirm: "Tem certeza?"
+
+  ##Generic
+  helpers:
+      submit:
+        create: "Criar"
+        update: "Atualizar"
+
+  activerecord:
+    attributes:
+      gamification_premium:
+        description: "Descrição: "
+        tickets: "Bilhetes: "

@@ -20,9 +20,7 @@
         <thead>
           <tr>
             <th><%= content_tag(:th, l(:premium_description)) %></th>
-            <th><%= content_tag(:th, l(:premium_ticket)) %></th>
-            <th></th>
-            <th></th>
+            <th><%= content_tag(:th, l(:premium_tickets)) %></th>
             <th></th>
           </tr>
         </thead>
@@ -32,9 +30,9 @@
             <tr>
               <td><%= premium.description %></td>
               <td><%= premium.tickets %></td>
-              <td><%= link_to 'Show', premium %></td>
-              <td><%= link_to 'Edit', edit_gamification_premium_path(premium) %></td>
-              <td><%= link_to 'Destroy', premium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to l(:premium_show), premium %></td>
+              <td><%= link_to l(:premium_edit), edit_gamification_premium_path(premium) %></td>
+              <td><%= link_to l(:premium_destroy), premium, method: :delete, data: { confirm: l(:premium_destroy_confirm) } %></td>
             </tr>
         <% end %>
         </tbody>
@@ -42,7 +40,7 @@
 
       <br>
 
-      <%= link_to 'New Premium', new_gamification_premium_path %>
+      <%= link_to l(:premium_create), new_gamification_premium_path %>
      </div>
 
 <% else %>
