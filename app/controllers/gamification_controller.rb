@@ -7,8 +7,8 @@ class GamificationController < ApplicationController
 
   menu_item :project_gamification
 
-  before_filter :auth_gamification, only: [:index, :project]
-  before_filter :find_project, only: [:project]
+  before_action :auth_gamification, only: [:index, :project]
+  before_action :find_project, only: [:project]
   before_action :set_user, only: [:list_premia, :redeem]
 
   def index
@@ -202,5 +202,5 @@ class GamificationController < ApplicationController
         redirect_to action: 'entry'
         return
       end
-     end
+    end
 end
