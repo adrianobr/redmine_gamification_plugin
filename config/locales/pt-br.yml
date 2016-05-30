@@ -1,5 +1,5 @@
 # English strings go here for Rails i18n
-'pt-BR':
+'pt-br':
   # my_label: "My label"
   plugin_name: "Gamificação"
 
